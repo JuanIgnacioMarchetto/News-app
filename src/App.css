@@ -1,10 +1,17 @@
+*{color: #b49c9c;
+font-family: fantasy
 
+;
+font-style: oblique;}
 .App {
   text-align: center;
+  background: url(https://previews.123rf.com/images/irstone/irstone1407/irstone140700121/29708539-vintage-news-paper-background.jpg);
+background-size: cover;
+background-repeat: no-repeat;
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .news-list {
@@ -17,8 +24,9 @@ h1 {
   max-width: 400px;
   margin: 10px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 5px solid #410e0e;
   border-radius: 5px;
+  border-radius: 15%;
 }
 
 .news-item h2 {
@@ -34,4 +42,6 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 15%;
+  border: #410e0e 5px solid;
 }

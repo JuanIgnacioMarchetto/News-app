@@ -38,23 +38,23 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Noticias</h1>
+      <h1>News :</h1>
       <div className="news-list">
         {news.map((article, index) => (
           <div key={index} className="news-item">
             <h2>{article.title}</h2>
             <p>{article.description}</p>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">Leer más</a>
+            <a href={article.url} target="_blank" rel="noopener noreferrer">More</a>
           </div>
         ))}
       </div>
       <input
         type="text"
-        placeholder="Ingrese una ciudad"
+        placeholder="Type a City"
         value={cityInput}
         onChange={(e) => setCityInput(e.target.value)}
       />
-      <button onClick={searchNews}>Buscar</button>
+      <button onClick={searchNews}>Search</button>
     </div>
   );
 }
