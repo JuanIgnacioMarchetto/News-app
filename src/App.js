@@ -40,13 +40,17 @@ function App() {
     <div className="App">
       <h1>News :</h1>
       <div className="news-list">
-        {news.map((article, index) => (
-          <div key={index} className="news-item">
-            <h2>{article.title}</h2>
-            <p>{article.description}</p>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">More</a>
-          </div>
-        ))}
+        {news && news.length > 0 ? (
+          news.map((article, index) => (
+            <div key={index} className="news-item">
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+              <a href={article.url} target="_blank" rel="noopener noreferrer">More</a>
+            </div>
+          ))
+        ) : (
+          <p>No news found.</p>
+        )}
       </div>
       <input
         type="text"
