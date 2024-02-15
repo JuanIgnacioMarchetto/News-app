@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-const apiKey = '45a445a5379d4828be2790ebf0201460';
+const apiKey = 'ogpB3byFAjOo3V6N54mlKRhq5FCns4mp';
 
 function App() {
   const [news, setNews] = useState([]);
@@ -13,9 +13,9 @@ function App() {
 
   const fetchLocalNews = async () => {
     try {
-      const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
+      const response = await fetch(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${apiKey}`);
       const data = await response.json();
-      setNews(data.articles);
+      setNews(data.results);
     } catch (error) {
       console.error('Error fetching local news:', error);
     }
@@ -28,9 +28,9 @@ function App() {
     }
 
     try {
-      const response = await fetch(`https://newsapi.org/v2/everything?q=${cityInput}&apiKey=${apiKey}`);
+      const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${cityInput}&api-key=${apiKey}`);
       const data = await response.json();
-      setNews(data.articles);
+      setNews(data.response.docs);
     } catch (error) {
       console.error('Error searching news:', error);
     }
@@ -44,7 +44,7 @@ function App() {
           news.map((article, index) => (
             <div key={index} className="news-item">
               <h2>{article.title}</h2>
-              <p>{article.description}</p>
+              <p>{article.abstract}</p>
               <a href={article.url} target="_blank" rel="noopener noreferrer">More</a>
             </div>
           ))
